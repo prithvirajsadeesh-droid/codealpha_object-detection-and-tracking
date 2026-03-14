@@ -1,0 +1,15 @@
+import cv2
+
+def draw_tracks(frame, tracks):
+    for track in tracks:
+        if not track.is_confirmed():
+            continue
+
+        track_id = track.track_id
+        l, t, w, h = track.to_ltrb()
+
+        cv2.rectangle(frame, (int(l), int(t)), (int(w), int(h)), (0,255,0), 2)
+        cv2.putText(frame, f"ID: {track_id}", (int(l), int(t)-10),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0,255,0), 2)
+
+    return frame

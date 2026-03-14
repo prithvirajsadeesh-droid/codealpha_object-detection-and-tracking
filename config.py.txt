@@ -1,0 +1,2 @@
+VIDEO_SOURCE = 0   # 0 for webcam or 'video.mp4'
+CONFIDENCE_THRESHOLD = 0.4
